@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="es-MX"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autorización clínica — EIRA Resultados</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#963341',
+        'on-primary': '#FFFFFF',
+        'primary-container': '#B54B58',
+        'on-primary-container': '#FFEEEE',
+        'secondary': '#7A5559',
+        'on-secondary': '#FFFFFF',
+        'secondary-container': '#FFCED2',
+        'on-secondary-container': '#5F3E41',
+        'tertiary': '#405A65',
+        'on-tertiary': '#FFFFFF',
+        'tertiary-container': '#58727E',
+        'on-tertiary-container': '#E2F5FF',
+        'brand-coral': '#E7959B',
+        'brand-blush': '#FBB6C2',
+        'brand-pink-container': '#FFDADB',
+        'on-brand-pink-container': '#40000E',
+        'background': '#FFF8F8',
+        'on-background': '#211A1B',
+        'surface': '#FFF8F8',
+        'surface-dim': '#E4D7D9',
+        'surface-bright': '#FFFFFF',
+        'surface-container-lowest': '#FFFFFF',
+        'surface-container-low': '#FFF0F2',
+        'surface-container': '#F9EAED',
+        'surface-container-high': '#F3E5E7',
+        'surface-container-highest': '#EDDFE1',
+        'on-surface': '#211A1B',
+        'surface-variant': '#F9DCDC',
+        'on-surface-variant': '#564243',
+        'outline': '#897172',
+        'outline-variant': '#DCC0C1',
+        'inverse-surface': '#362E30',
+        'inverse-on-surface': '#FCEDEF',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-container': '#FFDAD5',
+        'on-error-container': '#930009',
+        'success': '#006C45',
+        'on-success': '#FFFFFF',
+        'success-container': '#D6F7E5',
+        'on-success-container': '#003822',
+        'warning': '#8E4E00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCC1',
+        'on-warning-container': '#4C2700',
+        'info': '#006494',
+        'on-info': '#FFFFFF',
+        'info-container': '#CBE6FF',
+        'on-info-container': '#00344F',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'headline': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'title': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'body': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'label': ['"M PLUS Rounded 1c"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '700' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '700' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased" x-data="{ sidebarOpen: false, zoom: 100, estadoFirma: &#39;pendiente&#39; }">
+  <div class="min-h-[1024px] flex flex-col lg:flex-row" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 z-30 bg-on-surface/30 lg:hidden" style="display: none;"></div>
+
+    <!-- Shared Sidebar Navigation -->
+    <aside :class="sidebarOpen ? &#39;translate-x-0&#39; : &#39;-translate-x-full lg:translate-x-0&#39;" class="fixed lg:static inset-y-0 left-0 z-40 w-64 min-h-[1024px] bg-surface-container-lowest border-r border-outline-variant/60 flex flex-col justify-between p-gutter-lg transition-transform duration-surface-enter ease-surface-enter shrink-0" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col gap-gutter-xl">
+        <!-- Brand Mark -->
+        <div class="flex items-center justify-between gap-gutter-sm px-gutter-xs">
+          <div class="flex items-center gap-gutter-sm">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrByove9w1eSjdUc0gs6abPkHhFLuLJmkDnPx3Wr_eBSyL9nUtO36i9WO0S4RBe_9hujRnklTNpOYD7BIuS3eHyLjj8gL1Vi1zbVtcxGHjcEnt5lgK4__R3IYfuaqdLY9sK7-jwlytjBUhXCW6LdzAeyv3SZ2cB35KQqeRp2VFLGa4IJbdzsQtwLIvtZZ4Pv5IkIKXLKTXUb2jjs9jZwgOYeSNzp2Oxvd9dtO7_hKQ1ED8yVhutgMsDmCdEf" alt="Logo oficial de EIRA" class="h-8 w-auto object-contain">
+            <span class="px-gutter-sm py-gutter-xs rounded-full bg-brand-pink-container text-on-brand-pink-container font-label text-label-sm">Resultados</span>
+          </div>
+          <button type="button" @click="sidebarOpen = false" aria-label="Cerrar menú" class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-full text-on-surface-variant hover:bg-surface-container-low">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+
+        <!-- Primary Navigation -->
+        <nav aria-label="Navegación principal" class="flex flex-col gap-gutter-xs">
+          <a href="../dashboard-eira/DashboardEira.html" class="flex items-center gap-gutter-sm min-h-[44px] px-gutter-md py-gutter-sm rounded-full text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label text-label-lg transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">dashboard</span>
+            <span data-design-text-token="label-lg">Panel general</span>
+          </a>
+          <a href="../recepcion-documentos/RecepcionDocumentos.html" class="flex items-center justify-between gap-gutter-sm min-h-[44px] px-gutter-md py-gutter-sm rounded-full text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label text-label-lg transition-colors duration-state-change">
+            <span class="flex items-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">upload_file</span>
+              <span data-design-text-token="label-lg">Recepción</span>
+            </span>
+            <span data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" class="inline-flex items-center justify-center min-w-6 h-6 px-gutter-xs rounded-full bg-brand-pink-container text-on-brand-pink-container font-label tabular-nums">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm">4</span>
+            </span>
+          </a>
+          <a href="../autorizacion-clinica/AutorizacionClinica.html" aria-current="page" class="flex items-center justify-between gap-gutter-sm min-h-[44px] px-gutter-md py-gutter-sm rounded-full bg-primary text-on-primary font-label text-label-lg shadow-sm">
+            <span class="flex items-center gap-gutter-sm">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">verified_user</span>
+              <span data-design-text-token="label-lg">Autorización</span>
+            </span>
+            <span data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" class="inline-flex items-center justify-center min-w-6 h-6 px-gutter-xs rounded-full bg-brand-pink-container text-on-brand-pink-container font-label tabular-nums">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm">6</span>
+            </span>
+          </a>
+          <a href="../portal-pacientes/PortalPacientes.html" class="flex items-center gap-gutter-sm min-h-[44px] px-gutter-md py-gutter-sm rounded-full text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-label text-label-lg transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">smartphone</span>
+            <span data-design-text-token="label-lg">Portal pacientes</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Staff Identity Block -->
+      <div class="pt-gutter-md border-t border-outline-variant/60 flex items-center gap-gutter-sm">
+        <div class="w-10 h-10 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label text-label-lg shrink-0">
+          MT
+        </div>
+        <div class="min-w-0">
+          <p data-design-text-token="label-lg" class="font-label text-label-lg text-on-surface truncate">Dra. Mariana Torres</p>
+          <p data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-variant truncate">Coordinación Clínica · DEMO</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <!-- Top Header -->
+      <header class="bg-surface-container-lowest border-b border-outline-variant/60 px-gutter-lg py-gutter-md flex flex-wrap items-center justify-between gap-gutter-md">
+        <div class="flex items-center gap-gutter-sm">
+          <button type="button" @click="sidebarOpen = true" aria-label="Abrir menú" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-outline-variant text-on-surface hover:bg-surface-container-low">
+            <span class="material-symbols-outlined text-[22px]">menu</span>
+          </button>
+          <div>
+            <h1 data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface">Autorización Clínica</h1>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">Folio DEMO-2026-0418 · Revisión documental para publicación</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-gutter-sm">
+          <span data-component-id="badge-status" data-component-type="badge" data-component-variant="status" role="status" class="inline-flex items-center gap-gutter-xs px-gutter-md py-gutter-xs rounded-full bg-surface-container text-on-surface-variant border border-outline-variant font-label">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">shield</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm">Entorno DEMO · Privacidad activa</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-gutter-lg lg:p-gutter-xl max-w-7xl w-full mx-auto">
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-lg items-start">
+
+          <!-- Left 8 cols: Large Document Viewer -->
+          <section class="xl:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm overflow-hidden flex flex-col">
+            <!-- Viewer Toolbar -->
+            <div class="px-gutter-lg py-gutter-sm bg-surface-container-low border-b border-outline-variant/60 flex flex-wrap items-center justify-between gap-gutter-sm">
+              <div class="flex items-center gap-gutter-sm">
+                <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">picture_as_pdf</span>
+                <span data-design-text-token="label-lg" class="font-label text-label-lg text-on-surface tabular-nums">pap_DEMO-2026-0418.pdf</span>
+                <span class="font-label text-label-sm text-on-surface-variant">· Página 1 de 1</span>
+              </div>
+              <div class="flex items-center gap-gutter-xs">
+                <button data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" @click="zoom = Math.max(75, zoom - 25)" aria-label="Alejar documento" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[18px]">zoom_out</span>
+                </button>
+                <span class="font-label text-label-md text-on-surface px-gutter-xs tabular-nums" x-text="zoom + &#39;%&#39;">100%</span>
+                <button data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" @click="zoom = Math.min(150, zoom + 25)" aria-label="Acercar documento" class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface hover:bg-surface-container transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[18px]">zoom_in</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Document Canvas Area -->
+            <div class="bg-surface-container p-gutter-lg lg:p-gutter-xl flex justify-center overflow-auto min-h-[600px]">
+              <div class="bg-surface-container-lowest rounded-md shadow-md border border-outline-variant/60 w-full max-w-2xl p-gutter-xl flex flex-col gap-gutter-lg" :style="&#39;transform: scale(&#39; + (zoom / 100) + &#39;); transform-origin: top center;&#39;">
+                <!-- Simulated Official Document Header -->
+                <div class="flex flex-wrap items-start justify-between gap-gutter-sm border-b-2 border-brand-coral pb-gutter-md">
+                  <div class="flex flex-col gap-gutter-xs">
+                    <img src="https://lh3.googleusercontent.com/aida/ALJJyrByove9w1eSjdUc0gs6abPkHhFLuLJmkDnPx3Wr_eBSyL9nUtO36i9WO0S4RBe_9hujRnklTNpOYD7BIuS3eHyLjj8gL1Vi1zbVtcxGHjcEnt5lgK4__R3IYfuaqdLY9sK7-jwlytjBUhXCW6LdzAeyv3SZ2cB35KQqeRp2VFLGa4IJbdzsQtwLIvtZZ4Pv5IkIKXLKTXUb2jjs9jZwgOYeSNzp2Oxvd9dtO7_hKQ1ED8yVhutgMsDmCdEf" alt="EIRA A.C." class="h-8 w-auto object-contain self-start">
+                    <p class="font-label text-label-sm text-on-surface-variant">Programa de Prevención y Detección Oportuna</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="px-gutter-sm py-gutter-xs rounded-full bg-brand-pink-container text-on-brand-pink-container font-label text-label-sm">DOCUMENTO DEMO</span>
+                    <p class="font-label text-label-md text-on-surface mt-gutter-xs tabular-nums">Folio: DEMO-2026-0418</p>
+                  </div>
+                </div>
+
+                <!-- Patient & Study Metadata inside PDF -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md p-gutter-md rounded-md bg-surface-container-low border border-outline-variant/40">
+                  <div>
+                    <p class="font-label text-label-sm text-on-surface-variant">Paciente (DEMO)</p>
+                    <p class="font-label text-label-lg text-on-surface">A. L. M. · 36 años</p>
+                  </div>
+                  <div>
+                    <p class="font-label text-label-sm text-on-surface-variant">Unidad de atención</p>
+                    <p class="font-label text-label-lg text-on-surface">Unidad Móvil CDMX Sur</p>
+                  </div>
+                  <div>
+                    <p class="font-label text-label-sm text-on-surface-variant">Tipo de estudio</p>
+                    <p class="font-body text-body-md text-on-surface">Citología cervical (Papanicolaou)</p>
+                  </div>
+                  <div>
+                    <p class="font-label text-label-sm text-on-surface-variant">Fecha de emisión</p>
+                    <p class="font-body text-body-md text-on-surface tabular-nums">20/11/2026</p>
+                  </div>
+                </div>
+
+                <!-- Neutral Placeholder for Clinical Report Body -->
+                <div class="flex-1 border border-outline-variant/50 rounded-md p-gutter-lg flex flex-col gap-gutter-md bg-surface-bright">
+                  <h3 class="font-title text-title-md text-on-surface">Cuerpo del informe de laboratorio (DEMO)</h3>
+                  <p class="font-body text-body-md text-on-surface-variant">
+                    Documento PDF emitido por el laboratorio de referencia para validación de integridad y firma electrónica de liberación hacia el Portal de Pacientes.
+                  </p>
+                  <div class="flex flex-col gap-gutter-sm py-gutter-sm">
+                    <div class="h-3 bg-surface-container rounded-full w-full"></div>
+                    <div class="h-3 bg-surface-container rounded-full w-11/12"></div>
+                    <div class="h-3 bg-surface-container rounded-full w-4/5"></div>
+                    <div class="h-3 bg-surface-container rounded-full w-5/6"></div>
+                  </div>
+                  <div class="mt-auto pt-gutter-md border-t border-outline-variant/50 flex items-center justify-between text-label-sm text-on-surface-variant">
+                    <span>Sello digital de laboratorio verificado</span>
+                    <span class="tabular-nums">Hash DEMO: 8F9A-31C0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Right 4 cols: Study References, Admin Verification, Activity Log & Distinct Actions -->
+          <aside class="xl:col-span-4 flex flex-col gap-gutter-lg">
+
+            <!-- Status & References Card -->
+            <article class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <h2 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">Referencias del estudio</h2>
+                <span x-show="estadoFirma === &#39;pendiente&#39;" class="inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full bg-warning-container text-on-warning-container font-label text-label-sm">Pendiente</span>
+                <span x-show="estadoFirma === &#39;autorizado&#39;" style="display: none;" class="inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full bg-success-container text-on-success-container font-label text-label-sm">Autorizado</span>
+                <span x-show="estadoFirma === &#39;rechazado&#39;" style="display: none;" class="inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full bg-error-container text-on-error-container font-label text-label-sm">Rechazado</span>
+              </header>
+
+              <dl class="grid grid-cols-2 gap-gutter-sm text-body-md">
+                <div>
+                  <dt class="font-label text-label-sm text-on-surface-variant">Folio</dt>
+                  <dd class="font-label text-on-surface tabular-nums">DEMO-2026-0418</dd>
+                </div>
+                <div>
+                  <dt class="font-label text-label-sm text-on-surface-variant">Revisión admin.</dt>
+                  <dd class="font-label text-success flex items-center gap-gutter-xs">
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">check_circle</span>
+                    Aprobada
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-label text-label-sm text-on-surface-variant">Notificación</dt>
+                  <dd class="font-body text-on-surface">En espera de firma</dd>
+                </div>
+                <div>
+                  <dt class="font-label text-label-sm text-on-surface-variant">Portal paciente</dt>
+                  <dd class="font-body text-on-surface">No publicado</dd>
+                </div>
+              </dl>
+            </article>
+
+            <!-- Distinct Authorization / Rejection Actions -->
+            <article class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+              <h2 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Decisión clínica</h2>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+                Al autorizar, el documento quedará disponible para la paciente en el portal móvil y se enviará el aviso neutral.
+              </p>
+
+              <div class="flex flex-col gap-gutter-sm">
+                <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" @click="estadoFirma = &#39;autorizado&#39;" class="w-full inline-flex items-center justify-center gap-gutter-sm min-h-[44px] px-gutter-lg py-gutter-sm rounded-full bg-primary text-on-primary font-label text-label-lg shadow-sm hover:bg-primary-container transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">verified</span>
+                  <span>Autorizar publicación</span>
+                </button>
+
+                <button data-component-id="button-destructive" data-component-type="button" data-component-variant="destructive" type="button" @click="estadoFirma = &#39;rechazado&#39;" class="w-full inline-flex items-center justify-center gap-gutter-sm min-h-[44px] px-gutter-lg py-gutter-sm rounded-full bg-error-container text-on-error-container border border-error/20 font-label text-label-lg hover:bg-error hover:text-on-error transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">cancel</span>
+                  <span>Rechazar y devolver a recepción</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Activity Log -->
+            <article class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+              <h2 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Bitácora de actividad</h2>
+              <ol class="flex flex-col gap-gutter-md border-l-2 border-outline-variant pl-gutter-md">
+                <li class="flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-primary tabular-nums">Hoy · 09:42 h</span>
+                  <p class="font-body text-body-md text-on-surface">Revisión administrativa aprobada por L. Hernández (DEMO).</p>
+                </li>
+                <li class="flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-on-surface-variant tabular-nums">Hoy · 09:38 h</span>
+                  <p class="font-body text-body-md text-on-surface">Documento PDF cargado y verificado técnicamente (300 DPI).</p>
+                </li>
+                <li class="flex flex-col gap-gutter-xs">
+                  <span class="font-label text-label-sm text-on-surface-variant tabular-nums">18/11/2026 · 14:15 h</span>
+                  <p class="font-body text-body-md text-on-surface">Registro de toma de estudio en Unidad Móvil CDMX Sur.</p>
+                </li>
+              </ol>
+            </article>
+
+          </aside>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+
+</body></html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="es-MX"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de pacientes — EIRA Resultados</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#963341',
+        'on-primary': '#FFFFFF',
+        'primary-container': '#B54B58',
+        'on-primary-container': '#FFEEEE',
+        'secondary': '#7A5559',
+        'on-secondary': '#FFFFFF',
+        'secondary-container': '#FFCED2',
+        'on-secondary-container': '#5F3E41',
+        'tertiary': '#405A65',
+        'on-tertiary': '#FFFFFF',
+        'tertiary-container': '#58727E',
+        'on-tertiary-container': '#E2F5FF',
+        'brand-coral': '#E7959B',
+        'brand-blush': '#FBB6C2',
+        'brand-pink-container': '#FFDADB',
+        'on-brand-pink-container': '#40000E',
+        'background': '#FFF8F8',
+        'on-background': '#211A1B',
+        'surface': '#FFF8F8',
+        'surface-dim': '#E4D7D9',
+        'surface-bright': '#FFFFFF',
+        'surface-container-lowest': '#FFFFFF',
+        'surface-container-low': '#FFF0F2',
+        'surface-container': '#F9EAED',
+        'surface-container-high': '#F3E5E7',
+        'surface-container-highest': '#EDDFE1',
+        'on-surface': '#211A1B',
+        'surface-variant': '#F9DCDC',
+        'on-surface-variant': '#564243',
+        'outline': '#897172',
+        'outline-variant': '#DCC0C1',
+        'inverse-surface': '#362E30',
+        'inverse-on-surface': '#FCEDEF',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-container': '#FFDAD5',
+        'on-error-container': '#930009',
+        'success': '#006C45',
+        'on-success': '#FFFFFF',
+        'success-container': '#D6F7E5',
+        'on-success-container': '#003822',
+        'warning': '#8E4E00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFDCC1',
+        'on-warning-container': '#4C2700',
+        'info': '#006494',
+        'on-info': '#FFFFFF',
+        'info-container': '#CBE6FF',
+        'on-info-container': '#00344F',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'headline': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'title': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'body': ['"M PLUS Rounded 1c"', 'sans-serif'],
+        'label': ['"M PLUS Rounded 1c"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '700' }],
+        'body-lg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '700' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '700' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased" x-data="{ vista: &#39;acceso&#39;, folio: &#39;DEMO-2026-0417&#39;, codigo: &#39;4829-EIRA&#39; }">
+  <div class="min-h-[884px] flex flex-col max-w-md mx-auto bg-surface" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+    <!-- Patient Portal Header -->
+    <header class="bg-surface-container-lowest border-b border-outline-variant/60 px-gutter-md py-gutter-md flex items-center justify-between gap-gutter-sm">
+      <div class="flex items-center gap-gutter-sm">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrByove9w1eSjdUc0gs6abPkHhFLuLJmkDnPx3Wr_eBSyL9nUtO36i9WO0S4RBe_9hujRnklTNpOYD7BIuS3eHyLjj8gL1Vi1zbVtcxGHjcEnt5lgK4__R3IYfuaqdLY9sK7-jwlytjBUhXCW6LdzAeyv3SZ2cB35KQqeRp2VFLGa4IJbdzsQtwLIvtZZ4Pv5IkIKXLKTXUb2jjs9jZwgOYeSNzp2Oxvd9dtO7_hKQ1ED8yVhutgMsDmCdEf" alt="Logo oficial de EIRA" class="h-7 w-auto object-contain">
+        <span class="px-gutter-sm py-gutter-xs rounded-full bg-brand-pink-container text-on-brand-pink-container font-label text-label-sm">Portal Pacientes</span>
+      </div>
+      <span class="px-gutter-sm py-gutter-xs rounded-full bg-surface-container text-on-surface-variant border border-outline-variant font-label text-label-sm">DEMO</span>
+    </header>
+
+    <!-- Demo State Switcher (for testing all availability states on mobile) -->
+    <div class="px-gutter-md pt-gutter-md">
+      <div class="p-gutter-xs rounded-full bg-surface-container flex items-center gap-gutter-xs" role="tablist" aria-label="Estados del portal">
+        <button type="button" role="tab" @click="vista = &#39;acceso&#39;" :class="vista === &#39;acceso&#39; ? &#39;bg-surface-container-lowest text-primary shadow-sm&#39; : &#39;text-on-surface-variant&#39;" class="flex-1 min-h-[36px] rounded-full font-label text-label-sm transition-colors duration-state-change">Ingreso</button>
+        <button type="button" role="tab" @click="vista = &#39;disponible&#39;" :class="vista === &#39;disponible&#39; ? &#39;bg-surface-container-lowest text-primary shadow-sm&#39; : &#39;text-on-surface-variant&#39;" class="flex-1 min-h-[36px] rounded-full font-label text-label-sm transition-colors duration-state-change">Disponible</button>
+        <button type="button" role="tab" @click="vista = &#39;proceso&#39;" :class="vista === &#39;proceso&#39; ? &#39;bg-surface-container-lowest text-primary shadow-sm&#39; : &#39;text-on-surface-variant&#39;" class="flex-1 min-h-[36px] rounded-full font-label text-label-sm transition-colors duration-state-change">En proceso</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-gutter-md flex flex-col gap-gutter-lg">
+
+      <!-- State 1: Study Identifier & Private Access Code -->
+      <section x-show="vista === &#39;acceso&#39;" class="flex flex-col gap-gutter-lg">
+        <div class="flex flex-col gap-gutter-xs pt-gutter-xs">
+          <h1 data-design-text-token="display-lg-mobile" class="font-display text-display-lg-mobile text-on-surface">Consulta tu documento</h1>
+          <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+            Ingresa el identificador de tu estudio y tu código privado para consultar o descargar tu documento de Papanicolaou de forma segura.
+          </p>
+        </div>
+
+        <form @submit.prevent="vista = &#39;disponible&#39;" class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+          <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-gutter-xs">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Identificador de estudio (Folio)</span>
+            <input type="text" x-model="folio" placeholder="Ej. DEMO-2026-0417" class="w-full min-h-[44px] px-gutter-md py-gutter-sm rounded-md bg-surface-container-lowest border border-outline-variant text-on-surface font-body text-body-md tabular-nums focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-variant">Aparece en tu comprobante de atención.</span>
+          </label>
+
+          <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="password" class="flex flex-col gap-gutter-xs">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Código de acceso privado</span>
+            <input type="text" x-model="codigo" placeholder="Ej. 4829-EIRA" class="w-full min-h-[44px] px-gutter-md py-gutter-sm rounded-md bg-surface-container-lowest border border-outline-variant text-on-surface font-body text-body-md tabular-nums focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-variant">Código confidencial enviado a tu teléfono.</span>
+          </label>
+
+          <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" class="w-full inline-flex items-center justify-center gap-gutter-sm min-h-[48px] px-gutter-lg py-gutter-sm rounded-full bg-primary text-on-primary font-label text-label-lg shadow-sm hover:bg-primary-container transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">lock_open</span>
+            <span>Consultar documento</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- State 2: Neutral Available State + Secure Download -->
+      <section x-show="vista === &#39;disponible&#39;" style="display: none;" class="flex flex-col gap-gutter-md">
+        <article class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+          <div class="flex items-center justify-between gap-gutter-sm">
+            <span data-component-id="badge-success" data-component-type="badge" data-component-variant="success" class="inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full bg-success-container text-on-success-container font-label text-label-sm">
+              <span class="material-symbols-outlined text-[14px]" aria-hidden="true">check_circle</span>
+              Documento disponible
+            </span>
+            <span class="font-label text-label-sm text-on-surface-variant tabular-nums">DEMO</span>
+          </div>
+
+          <div>
+            <h2 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">Tu documento está listo para consulta</h2>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant mt-gutter-xs">
+              Folio <span class="font-label text-on-surface tabular-nums" x-text="folio"></span> · Autorizado para entrega digital.
+            </p>
+          </div>
+
+          <!-- Secure Document Preview Box (No diagnosis shown) -->
+          <div class="p-gutter-md rounded-lg bg-surface-container-low border border-outline-variant/50 flex items-center gap-gutter-md">
+            <div class="w-12 h-12 rounded-md bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined text-[26px]" aria-hidden="true">picture_as_pdf</span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p class="font-label text-label-lg text-on-surface truncate">Resultado_Papanicolaou_DEMO.pdf</p>
+              <p class="font-label text-label-sm text-on-surface-variant">Documento oficial sellado · 1 página</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-gutter-sm">
+            <button type="button" class="w-full inline-flex items-center justify-center gap-gutter-sm min-h-[48px] px-gutter-lg py-gutter-sm rounded-full bg-primary text-on-primary font-label text-label-lg shadow-sm hover:bg-primary-container transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">download</span>
+              <span>Descargar PDF seguro</span>
+            </button>
+            <button type="button" class="w-full inline-flex items-center justify-center gap-gutter-sm min-h-[44px] px-gutter-lg py-gutter-sm rounded-full bg-surface-container-lowest border border-outline-variant text-primary font-label text-label-lg hover:bg-surface-container-low transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[20px]" aria-hidden="true">visibility</span>
+              <span>Ver documento en pantalla</span>
+            </button>
+          </div>
+
+          <p class="font-body text-label-sm text-on-surface-variant">
+            Por tu privacidad, este portal no muestra ni interpreta información médica en pantalla. Para dudas sobre tu estudio, acude a tu unidad EIRA.
+          </p>
+        </article>
+      </section>
+
+      <!-- State 3: Neutral Pending / In-Process State -->
+      <section x-show="vista === &#39;proceso&#39;" style="display: none;" class="flex flex-col gap-gutter-md">
+        <article class="bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm flex flex-col gap-gutter-md">
+          <span data-component-id="badge-warning" data-component-type="badge" data-component-variant="warning" class="self-start inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full bg-warning-container text-on-warning-container font-label text-label-sm">
+            <span class="material-symbols-outlined text-[14px]" aria-hidden="true">schedule</span>
+            En proceso de validación
+          </span>
+          <div>
+            <h2 data-design-text-token="title-lg" class="font-title text-title-lg text-on-surface">Tu documento aún está en revisión</h2>
+            <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant mt-gutter-xs">
+              Estamos completando la verificación administrativa y clínica del folio <span class="font-label text-on-surface tabular-nums" x-text="folio"></span>. Recibirás un aviso cuando esté listo para descarga.
+            </p>
+          </div>
+          <button type="button" @click="vista = &#39;acceso&#39;" class="w-full inline-flex items-center justify-center min-h-[44px] px-gutter-lg py-gutter-sm rounded-full bg-surface-container-lowest border border-outline-variant text-primary font-label text-label-lg hover:bg-surface-container-low transition-colors duration-state-change">
+            Consultar otro folio
+          </button>
+        </article>
+      </section>
+
+      <!-- Assisted Access Information -->
+      <aside class="bg-surface-container-low rounded-xl p-gutter-lg border border-outline-variant/60 flex flex-col gap-gutter-sm mt-auto">
+        <div class="flex items-center gap-gutter-sm">
+          <span class="w-9 h-9 rounded-full bg-brand-pink-container text-on-brand-pink-container flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">support_agent</span>
+          </span>
+          <h2 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Acceso asistido EIRA</h2>
+        </div>
+        <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant">
+          Si extraviaste tu código privado o prefieres apoyo presencial para obtener tu documento impreso, contáctanos:
+        </p>
+        <div class="flex flex-col gap-gutter-xs pt-gutter-xs">
+          <p class="font-label text-label-md text-on-surface tabular-nums">Línea de orientación: 55 0000 0000 (DEMO)</p>
+          <p class="font-body text-label-sm text-on-surface-variant">Lunes a viernes de 9:00 a 17:00 h · Módulos EIRA</p>
+        </div>
+      </aside>
+
+    </main>
+  </div>
+
+
+</body></html>

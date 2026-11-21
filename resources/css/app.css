@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'M PLUS Rounded 1c', ui-sans-serif, system-ui, sans-serif;
+
+    --color-primary: #963341;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #b54b58;
+    --color-on-primary-container: #ffeeee;
+    --color-secondary: #7a5559;
+    --color-secondary-container: #ffced2;
+    --color-on-secondary-container: #5f3e41;
+    --color-tertiary: #405a65;
+    --color-brand-coral: #e7959b;
+    --color-brand-blush: #fbb6c2;
+    --color-brand-pink-container: #ffdadb;
+    --color-on-brand-pink-container: #40000e;
+    --color-background: #fff8f8;
+    --color-surface: #fff8f8;
+    --color-surface-dim: #e4d7d9;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #fff0f2;
+    --color-surface-container: #f9eaed;
+    --color-surface-container-high: #f3e5e7;
+    --color-surface-container-highest: #eddfe1;
+    --color-on-surface: #211a1b;
+    --color-on-surface-variant: #564243;
+    --color-outline: #897172;
+    --color-outline-variant: #dcc0c1;
+    --color-error: #ba1a1a;
+    --color-on-error: #ffffff;
+    --color-error-container: #ffdad5;
+    --color-on-error-container: #930009;
+    --color-success: #006c45;
+    --color-on-success: #ffffff;
+    --color-success-container: #d6f7e5;
+    --color-on-success-container: #003822;
+    --color-warning: #8e4e00;
+    --color-on-warning: #ffffff;
+    --color-warning-container: #ffdcc1;
+    --color-on-warning-container: #4c2700;
+    --color-info: #006494;
+    --color-on-info: #ffffff;
+    --color-info-container: #cbe6ff;
+    --color-on-info-container: #00344f;
+
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    --spacing-gutter-xs: 4px;
+    --spacing-gutter-sm: 8px;
+    --spacing-gutter-md: 16px;
+    --spacing-gutter-lg: 24px;
+    --spacing-gutter-xl: 32px;
+
+    --text-display-lg: 36px;
+    --text-display-lg--line-height: 44px;
+    --text-display-lg--letter-spacing: -0.5px;
+    --text-display-lg--font-weight: 700;
+    --text-display-lg-mobile: 28px;
+    --text-display-lg-mobile--line-height: 34px;
+    --text-display-lg-mobile--letter-spacing: -0.25px;
+    --text-display-lg-mobile--font-weight: 700;
+    --text-headline-md: 22px;
+    --text-headline-md--line-height: 28px;
+    --text-headline-md--font-weight: 700;
+    --text-title-lg: 18px;
+    --text-title-lg--line-height: 24px;
+    --text-title-lg--font-weight: 700;
+    --text-title-md: 16px;
+    --text-title-md--line-height: 22px;
+    --text-title-md--font-weight: 700;
+    --text-body-lg: 16px;
+    --text-body-lg--line-height: 24px;
+    --text-body-md: 14px;
+    --text-body-md--line-height: 20px;
+    --text-label-lg: 14px;
+    --text-label-lg--line-height: 20px;
+    --text-label-lg--letter-spacing: 0.1px;
+    --text-label-lg--font-weight: 700;
+    --text-label-md: 12px;
+    --text-label-md--line-height: 16px;
+    --text-label-md--letter-spacing: 0.2px;
+    --text-label-md--font-weight: 700;
+    --text-label-sm: 11px;
+    --text-label-sm--line-height: 14px;
+    --text-label-sm--letter-spacing: 0.3px;
+    --text-label-sm--font-weight: 500;
+}
+
+@layer base {
+    body {
+        @apply bg-surface text-on-surface font-sans antialiased;
+    }
+
+    .material-symbols-outlined {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        line-height: 1 !important;
+        overflow: hidden;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-surface-container-lowest rounded-xl p-gutter-lg border border-outline-variant/60 shadow-sm;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-gutter-sm min-h-[44px] px-gutter-lg py-gutter-sm rounded-full text-label-lg transition-colors duration-150 cursor-pointer;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-on-primary shadow-sm hover:bg-primary-container;
+    }
+
+    .btn-secondary {
+        @apply bg-surface-container-lowest border border-outline-variant text-primary hover:bg-surface-container-low;
+    }
+
+    .btn-danger {
+        @apply bg-surface-container-lowest border border-error/40 text-error hover:bg-error-container;
+    }
+
+    .field {
+        @apply w-full min-h-[44px] px-gutter-md py-gutter-sm rounded-md bg-surface-container-lowest border border-outline-variant text-on-surface text-body-md tabular-nums focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-gutter-xs px-gutter-sm py-gutter-xs rounded-full text-label-sm whitespace-nowrap;
+    }
+
+    .badge-neutral {
+        @apply bg-surface-container text-on-surface-variant border border-outline-variant;
+    }
+
+    .badge-success {
+        @apply bg-success-container text-on-success-container;
+    }
+
+    .badge-warning {
+        @apply bg-warning-container text-on-warning-container;
+    }
+
+    .badge-info {
+        @apply bg-info-container text-on-info-container;
+    }
+
+    .badge-error {
+        @apply bg-error-container text-on-error-container;
+    }
+
+    .badge-brand {
+        @apply bg-brand-pink-container text-on-brand-pink-container;
+    }
+
+    .nav-link {
+        @apply flex items-center justify-between gap-gutter-sm min-h-[44px] px-gutter-md py-gutter-sm rounded-full text-on-surface-variant text-label-lg transition-colors duration-150 hover:bg-surface-container-low hover:text-on-surface;
+    }
+
+    .nav-link-active {
+        @apply bg-primary text-on-primary shadow-sm hover:bg-primary hover:text-on-primary;
+    }
+}
